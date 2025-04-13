@@ -46,6 +46,8 @@ Before running the example, make sure to create the secrets file and specify its
 
 The IliadStats module can also be deployed as a RESTful API using FastAPI. This allows you to expose the module's functionality via HTTP endpoints.
 
+---
+
 ### Running the FastAPI Server
 
 1. Ensure you have installed the required dependencies:
@@ -60,11 +62,42 @@ The IliadStats module can also be deployed as a RESTful API using FastAPI. This 
 
    By default, the server will run at `http://127.0.0.1:8000`.
 
+---
+
+### Running the FastAPI Server with Docker Compose
+
+You can run the FastAPI server using Docker Compose with the prebuilt image.
+
+1. Ensure you have a `secrets.json` file in the root of your project directory.
+
+2. Use the following docker compose file, or download `docker-compose.yml` from this repo:
+```yaml
+services:
+  iliadstats:
+    image: ghcr.io/EugenioMoro/iliadstats:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./secrets.json:/app/secrets.json
+    environment:
+      - PYTHONUNBUFFERED=1
+```
+
+
+2. Start the container:
+   ```bash
+   docker compose up
+   ```
+
+3. Access the server at `http://127.0.0.1:8000`.
+
 ### API Endpoints
 
 - **GET `/api/v1/used-data`**: Fetch the amount of data used.
 - **GET `/api/v1/traffic-endowment`**: Fetch the total data available in your plan.
 - **GET `/api/v1/renewal-date`**: Fetch the next renewal date for your plan.
+
+---
 
 ### Interactive API Documentation
 

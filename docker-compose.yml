@@ -1,0 +1,9 @@
+services:
+  iliadstats:
+    image: ghcr.io/EugenioMoro/iliadstats:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./secrets.json:/app/secrets.json
+    environment:
+      - PYTHONUNBUFFERED=1
