@@ -13,6 +13,8 @@ setup(
     install_requires=[
         'requests>=2.31.0',
         'lxml>=4.9.3',
+        'fastapi>=0.103.1',
+        'uvicorn>=0.23.2',
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',

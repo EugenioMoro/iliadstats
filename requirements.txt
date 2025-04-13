@@ -1,2 +1,4 @@
-requests==2.31.0  # For making HTTP requests
-lxml==4.9.3  # For XPath support
+requests 
+lxml
+fastapi
+uvicorn
