@@ -2,8 +2,6 @@
 
 **IliadStats** is a Python module for scraping information from the Iliad dashboard. It allows you to programmatically retrieve details such as traffic consumption, traffic endowment, and renewal dates from your Iliad account. **More to come!**
 
----
-
 ## Features
 
 - **Traffic Consumption**: Retrieve the amount of data you've used.
@@ -11,8 +9,6 @@
 - **Renewal Date**: Fetch the next renewal date for your plan.
 - **Used Minutes**: Retrieve the amount of minutes spent in calls **(coming soon)**
 - **Sent SMS**: Get the number of sent SMSs **(coming soon)**
-
----
 
 ## Installation
 
@@ -27,6 +23,7 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+
 ### Secrets file
 Before using the module, you need to create a `secrets.json` file containing your Iliad account credentials. 
 
@@ -44,6 +41,39 @@ Token can be left empty, as it will be fetched automatically at the first login 
 An example script (`example.py`) is included in the repository to demonstrate how to use the module.
 
 Before running the example, make sure to create the secrets file and specify its path in the example.
+
+## FastAPI Deployment
+
+The IliadStats module can also be deployed as a RESTful API using FastAPI. This allows you to expose the module's functionality via HTTP endpoints.
+
+### Running the FastAPI Server
+
+1. Ensure you have installed the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Start the FastAPI server:
+   ```bash
+   uvicorn api-server:app --reload
+   ```
+
+   By default, the server will run at `http://127.0.0.1:8000`.
+
+### API Endpoints
+
+- **GET `/api/v1/used-data`**: Fetch the amount of data used.
+- **GET `/api/v1/traffic-endowment`**: Fetch the total data available in your plan.
+- **GET `/api/v1/renewal-date`**: Fetch the next renewal date for your plan.
+
+### Interactive API Documentation
+
+FastAPI provides interactive documentation for the API:
+
+- **Swagger UI**: Visit `http://127.0.0.1:8000/docs`
+- **ReDoc**: Visit `http://127.0.0.1:8000/redoc`
+
+These interfaces allow you to test the API endpoints directly from your browser.
 
 ## API Reference
 
@@ -63,6 +93,7 @@ ilistats = IliadStats(secrets_file_path="path/to/secrets.json", refresh_interval
 * `get_renewal_date()`: Returns the next renewal date as a `time.struct_time` object.
 
 ## Development
+
 ### Tests
 Tests for this module are currently a **WIP**. Once completed, they will ensure the reliability of the module and cover edge cases.
 
