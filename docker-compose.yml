@@ -1,6 +1,6 @@
 services:
   iliadstats:
-    image: ghcr.io/EugenioMoro/iliadstats:latest
+    image: ghcr.io/eugeniomoro/iliadstats:latest
     ports:
       - "8000:8000"
     volumes:

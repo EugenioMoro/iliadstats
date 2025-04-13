@@ -29,5 +29,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/iliadstats:latest
-            ghcr.io/${{ github.repository_owner }}/iliadstats:${{ github.event.release.tag_name }}
+            ghcr.io/eugeniomoro/iliadstats:latest
+            ghcr.io/eugeniomoro/iliadstats:${{ github.event.release.tag_name }}
